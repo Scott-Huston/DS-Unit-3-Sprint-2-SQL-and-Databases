@@ -29,6 +29,19 @@ curs.execute(avg_hire_age).fetchall()
 # Result:
 # [(37.22222222222222,)]
 
+hire_age_city = '''
+SELECT AVG(HireDate - BirthDate), City FROM Employee
+GROUP BY City
+'''
+curs.execute(hire_age_city).fetchall()
+
+# Result:
+# [(29.0, 'Kirkland'),
+#  (32.5, 'London'),
+#  (56.0, 'Redmond'),
+#  (40.0, 'Seattle'),
+#  (40.0, 'Tacoma')]
+
 most_expensive_with_supplier = '''
 SELECT Product.ProductName, Supplier.CompanyName
 FROM Product
